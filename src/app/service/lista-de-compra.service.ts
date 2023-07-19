@@ -7,7 +7,6 @@ import { Injectable } from '@angular/core';
 export class ListaDeCompraService {
 
   private listaDeCompra: Item[];
-    
 
   constructor() {
     console.log('Instanciando dependências necessárias para o serviço.');
@@ -45,6 +44,19 @@ export class ListaDeCompraService {
     const id = itemAntigo.id
     this.listaDeCompra.splice(Number(id)-1, 1, itemEditado)
     this.atualizarLocalStorage()
+  }
+
+  pathListaDeCompra(itemAntigo: Item, comprado: boolean){
+    const itemEditado : Item = {
+      id: itemAntigo.id,
+      nome: itemAntigo.nome,
+      data: itemAntigo.data,
+      comprado: comprado
+  }
+
+  const id = itemAntigo.id
+  this.listaDeCompra.splice(Number(id)-1, 1, itemEditado)
+  this.atualizarLocalStorage()
   }
 
   atualizarLocalStorage(){

@@ -15,11 +15,14 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
       this.listaDeCompras = this.listaService.getListaDeCompra()
-      console.log(this.listaDeCompras)
   }
 
   editarItem(item: Item){
     this.itemParaSerEditado = item;
+  }
+
+  editarStatusComprado(item: Item){
+    this.listaService.pathListaDeCompra(item,item.comprado) 
   }
 
 }
